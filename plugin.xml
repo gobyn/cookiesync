@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="org.apache.cordova.cookiesync" version="0.0.1">
+  <name>Cookiesync</name>
+  <description>Cordova Cookie Synchronisation Plugin</description>
+  <license>Apache 2.0</license>
+  <keywords>cordova,cookie,sync</keywords>
+  <js-module src="www/cookiesync.js" name="CookieSync">
+    <clobbers target="cookiesync" />
+  </js-module>
+  <!-- android -->
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="CookieSync" >
+        <param name="android-package" value="org.apache.cordova.cookiesync.CookieSync"/>
+      </feature>
+    </config-file>
+    <source-file src="src/android/CookieSync.java" target-dir="src/org/apache/cordova/cookiesync" />
+  </platform>
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="CookieSync">
+        <param name="ios-package" value="CookieSync"/>
+      </feature>
+    </config-file>
+    <header-file src="src/ios/CookieSync.h" />
+    <source-file src="src/ios/CookieSync.m" />
+  </platform>
+</plugin>
